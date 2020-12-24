@@ -1,0 +1,33 @@
+package com.laptrinhJavaWeb.authoritationLogger;
+
+public class authoritater implements IAuthoritationLog {
+	
+	private String userName;
+	private String password;
+	private Integer status;
+	
+	
+
+	public authoritater(String userName, String password, Integer status) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.status = status;
+	}
+
+	@Override
+	public String userName() {
+		return this.userName;
+	}
+
+	@Override
+	public String passWord() {
+		return this.password;
+	}
+
+	@Override
+	public Integer status() {
+		return this.status;
+	}
+
+}

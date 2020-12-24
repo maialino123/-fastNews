@@ -1,0 +1,5 @@
+package com.laptrinhJavaWeb.authoritationLogger;
+
+public class authoritater implements IAuthoritationLog {
+
+}

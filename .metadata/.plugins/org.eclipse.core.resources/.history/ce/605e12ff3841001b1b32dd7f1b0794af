@@ -1,0 +1,7 @@
+package com.laptrinhJavaWeb.service.impl;
+
+import com.laptrinhJavaWeb.service.IUserService;
+
+public class userService implements IUserService{
+
+}

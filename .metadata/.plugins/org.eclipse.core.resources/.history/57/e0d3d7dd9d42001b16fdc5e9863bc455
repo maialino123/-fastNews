@@ -1,0 +1,19 @@
+package com.laptrinhJavaWeb.utils;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class sessionUtil {
+	private static sessionUtil instance = null;
+
+	public static sessionUtil getInstance() {
+		if (instance == null) {
+			instance = new sessionUtil();
+		}
+		return instance;
+
+	}
+	
+	public void putValue(HttpServletRequest req , String key, Object value) {
+		req.getSession().setAttribute(key, value);
+	}
+}

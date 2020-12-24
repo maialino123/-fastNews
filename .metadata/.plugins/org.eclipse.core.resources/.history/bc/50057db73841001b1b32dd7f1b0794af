@@ -1,0 +1,14 @@
+package com.laptrinhJavaWeb.dao.impl;
+
+import com.laptrinhJavaWeb.dao.IUserDAO;
+import com.laptrinhJavaWeb.model.usersModel;
+
+public class userDAO  extends AbstrachDAO<usersModel> implements IUserDAO{
+
+	@Override
+	public usersModel findByUserNameAndPasswordAndStatus(String userName, String password, Integer status) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM users WHERE username = ? AND password = ? AND status = ?");
+		return null;
+	}
+
+}

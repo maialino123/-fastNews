@@ -1,0 +1,14 @@
+package com.laptrinhJavaWeb.utils;
+
+public class sessionUtil {
+  private static sessionUtil instance = null;
+  public static sessionUtil getInstance() {
+	  if (instance == null) {
+		return new sessionUtil();
+	} else {
+		return instance;
+	}
+	
+	  
+  }
+}

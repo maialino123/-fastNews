@@ -1,0 +1,13 @@
+package com.laptrinhJavaWeb.sort;
+
+public class sorter {
+	private String sortName;
+	private String sortBy;
+
+	public sorter(String sortName, String sortBy) {
+		super();
+		this.sortName = sortName;
+		this.sortBy = sortBy;
+	}
+
+}

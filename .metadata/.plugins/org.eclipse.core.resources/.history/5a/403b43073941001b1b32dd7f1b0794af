@@ -1,0 +1,14 @@
+package com.laptrinhJavaWeb.service.impl;
+
+import com.laptrinhJavaWeb.model.usersModel;
+import com.laptrinhJavaWeb.service.IUserService;
+
+public class userService implements IUserService{
+
+	@Override
+	public usersModel findByUserNameAndPasswordAndStatus(String userName, String password, Integer status) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

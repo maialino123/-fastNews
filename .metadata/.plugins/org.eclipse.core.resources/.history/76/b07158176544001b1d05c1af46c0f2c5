@@ -1,0 +1,7 @@
+package com.laptrinhJavaWeb.authoritationLogger;
+
+public interface IAuthoritationLog {
+  String userName();
+  String passWord();
+  Integer status();
+}

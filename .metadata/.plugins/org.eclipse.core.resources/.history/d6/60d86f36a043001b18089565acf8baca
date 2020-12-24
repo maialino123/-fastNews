@@ -1,0 +1,68 @@
+package com.laptrinhJavaWeb.controller.web;
+
+import java.io.IOException;
+import java.util.ResourceBundle;
+
+import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.laptrinhJavaWeb.model.usersModel;
+import com.laptrinhJavaWeb.service.IUserService;
+import com.laptrinhJavaWeb.utils.formUtils;
+import com.laptrinhJavaWeb.utils.sessionUtil;
+
+@WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/dang-xuat"})
+public class HomeController extends HttpServlet  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Inject private IUserService userService;
+	
+	ResourceBundle ResourceBundle = ResourceBundle.getBundle("message");
+	
+
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String action = req.getParameter("action");
+		if (action != null && action.equals("login")) {
+			RequestDispatcher rd = req.getRequestDispatcher("/views/login/login.jsp");
+			rd.forward(req, resp);
+		} else if (action != null && action.equals("logout")) {
+			sessionUtil.getInstance().removeValue(req, "USERMODEL");
+			resp.sendRedirect(req.getContextPath()+"/trang-chu");
+		} else {
+			RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp");
+			rd.forward(req, resp);
+		}
+	}
+
+
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String action = req.getParameter("action");
+		if (action != null && action.equals("login")) {
+			usersModel usersModel = formUtils.toModel(usersModel.class, req);
+			usersModel = userService.findByUserNameAndPasswordAndStatus(usersModel.getUserName(), usersModel.getPassword(), 1);
+			if (usersModel != null && usersModel.getRole().getCode() != null) {
+				sessionUtil.getInstance().putValue(req, "USERMODEL", usersModel);
+				if (usersModel.getRole().getCode().equals("USER")) {
+					resp.sendRedirect(req.getContextPath()+"/trang-chu");
+				} else if(usersModel.getRole().getCode().equals("ADMIN")) {
+					resp.sendRedirect(req.getContextPath()+"/admin-home");
+				}
+			} else {
+				resp.sendRedirect(req.getContextPath()+"/dang-nhap?action=login");
+			}
+			
+		}
+	}
+}

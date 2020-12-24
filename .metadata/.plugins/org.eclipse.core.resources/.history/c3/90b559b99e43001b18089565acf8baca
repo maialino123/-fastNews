@@ -1,0 +1,4 @@
+serverName = com.mysql.jdbc.Driver
+url = jdbc:mysql://localhost:3306/new_jsp
+user = root
+password = 1234$

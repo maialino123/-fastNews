@@ -1,0 +1,7 @@
+package com.laptrinhJavaWeb.paging;
+
+public interface pageble {
+ Integer getPage();
+ Integer getLimit();
+ Integer getOffset();
+}

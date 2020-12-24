@@ -1,0 +1,23 @@
+package com.laptrinhJavaWeb.mapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.laptrinhJavaWeb.model.usersModel;
+
+public class usersMapper implements RowMapper<usersModel>{
+
+	@Override
+	public usersModel mapRow(ResultSet rs) {
+		try {
+			usersModel usersModel = new usersModel();
+			usersModel.setId(rs.getLong("id"));
+			usersModel.setUserName(rs.getString("username"));
+			usersModel.setPassword(rs.getString("password"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+ 
+}

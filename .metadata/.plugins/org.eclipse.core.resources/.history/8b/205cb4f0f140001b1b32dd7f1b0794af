@@ -1,0 +1,5 @@
+package com.laptrinhJavaWeb.paging;
+
+public class pageRequest {
+
+}

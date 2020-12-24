@@ -1,0 +1,7 @@
+package com.laptrinhJavaWeb.service;
+
+import com.laptrinhJavaWeb.model.usersModel;
+
+public interface IUserService {
+ usersModel findByUserNameAndPasswordAndStatus();
+}

@@ -1,0 +1,8 @@
+package com.laptrinhJavaWeb.dao.impl;
+
+import com.laptrinhJavaWeb.dao.IUserDAO;
+import com.laptrinhJavaWeb.model.usersModel;
+
+public class userDAO  extends AbstrachDAO<usersModel> implements IUserDAO{
+
+}

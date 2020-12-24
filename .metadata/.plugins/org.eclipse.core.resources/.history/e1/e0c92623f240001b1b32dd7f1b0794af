@@ -1,0 +1,34 @@
+package com.laptrinhJavaWeb.paging;
+
+public class pageRequest implements pageble {
+	
+	private Integer page;
+	private Integer maxPage;
+	
+	
+
+	public pageRequest(Integer page, Integer maxPage) {
+		super();
+		this.page = page;
+		this.maxPage = maxPage;
+	}
+
+	@Override
+	public Integer getPage() {
+		
+		return null;
+	}
+
+	@Override
+	public Integer getLimit() {
+		
+		return null;
+	}
+
+	@Override
+	public Integer getOffset() {
+		
+		return null;
+	}
+
+}
